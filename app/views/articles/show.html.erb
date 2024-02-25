@@ -1,0 +1,37 @@
+<section class="project-2">
+    <h2 class="vev1"><%= @article.title %></h2>
+        <div class="container1">
+                <div class="show-articl ">
+                    <% if @article.image.attached? %>
+                    <%= image_tag @article.image %>
+                    <% end %>
+                </div>
+                <div class="article-dis">
+                    <p class="vev"><%= @article.discription %></p>
+                </div>
+                <h6 class="time">
+                    <%= time_ago_in_words(@article.created_at)%>  ago
+                </h6>
+                <h6 class="time">
+                    <%= @article.view %>
+                </h6>
+                <% if current_user %>
+                <h6 class="time">
+                <%= button_to "likes", likes_path, params: {like: {article_id:@article.id}} %>
+                <%= @article.likes %>
+                </h6>
+                <% end%>
+        </div>
+            <div class="link-v">
+                <h6>
+                    <%= link_to 'Back', articles_path, class:"btn2 btn-primary2" %>
+                </h6>
+                <h6>
+                    <%= link_to 'Edit', edit_article_path(@article), class:"btn2 btn-primary2" %>
+                </h6>
+            </div>
+
+            <h6>
+            <%= button_to "Destroy this article", @article, method: :delete %>
+        </h6>
+</section>

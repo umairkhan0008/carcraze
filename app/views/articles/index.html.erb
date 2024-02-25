@@ -1,0 +1,18 @@
+<section class="project-2">
+    <h2 class="vev">Articles</h2>
+      <div class="container projects2-container">
+         <% @articles.each do |article| %>
+            <article class="project2">
+              <div class="project2-img">
+                <% if article.image.attached? %>
+                    <%= image_tag article.image, class: "article-image" %>
+                <% end %>
+              </div>
+      <p class="vev"><%= article.title %></p>
+      <a><%= link_to "Learn More", article_path(article.id), class:"btn1 btn-primary1"%></a>
+      
+            </article>
+          <% end %>
+      </div>
+        <%= link_to 'New Article', new_article_path, class: "btn1 btn-primary1 fef" %>
+</section>

@@ -1,0 +1,23 @@
+<%= form_with(model: article, local: true) do |form| %>
+
+    <div class="field-1">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+  
+    <div class="field-1">
+      <%= form.label :description %>
+      <%= form.text_area :discription %>
+    </div>
+  
+    <div class="field-1">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  
+    <div class="actions">
+      <%= form.submit class: "btn1 btn-primary1" %>
+    </div>
+  <% end %>
+  
